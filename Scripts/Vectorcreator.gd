@@ -31,7 +31,7 @@ func _input(event):
 		vector = -(position_end - position_start).clamped(maximum_lenght)
 		update()
 
-func on_Vectorcreator_input_event(_viewport, event, _shape_idx):
+func on_Vectorcreator_input_event(_viewport, event, _shape_idx):#connected to input vector signal on area2d
 	if event.is_action_pressed("ui_touch"):
 		touch_down = true
 		position_start = event.position
