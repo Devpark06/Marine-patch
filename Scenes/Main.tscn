@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
+[ext_resource path="res://Scenes/Arrow.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Ocean.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Vectorcreator.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Arrow_holder.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 376, 30 )
@@ -20,10 +22,26 @@ position = Vector2( 360, 246 )
 current = true
 
 [node name="Vectorcreator" parent="Player" instance=ExtResource( 4 )]
-position = Vector2( -102, 30 )
+position = Vector2( -72, 7 )
+ArrowHolder = NodePath("Arrow_holder")
+ReturnPos = NodePath("ReturnPos")
+
+[node name="Arrow" parent="Player/Vectorcreator" instance=ExtResource( 1 )]
+position = Vector2( 6, -2 )
+ArrowHolder = NodePath("../Arrow_holder")
+ReturnPos = NodePath("../ReturnPos")
+Vector_creator = NodePath("..")
+
+[node name="Arrow_holder" parent="Player/Vectorcreator" instance=ExtResource( 5 )]
+position = Vector2( 6, -2 )
+
+[node name="ReturnPos" type="Position2D" parent="Player/Vectorcreator"]
+position = Vector2( 6, -2 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 117, 500 )
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 232, -1 )
