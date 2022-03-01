@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/UI/Hud.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/UI/Coin_counter.tscn" type="PackedScene" id=2]
@@ -10,6 +10,14 @@
 [ext_resource path="res://Assets/UI/Hud/Home button.png" type="Texture" id=8]
 [ext_resource path="res://Assets/UI/Hud/Restart button.png" type="Texture" id=9]
 [ext_resource path="res://Resourses/Shortcuts/ResumeShortcut.tres" type="ShortCut" id=10]
+[ext_resource path="res://Assets/Fonts/Roboto-Bold.ttf" type="DynamicFontData" id=11]
+
+[sub_resource type="DynamicFont" id=1]
+size = 150
+outline_size = 25
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 11 )
 
 [node name="Hud" type="Control"]
 anchor_right = 1.0
@@ -148,6 +156,40 @@ grow_vertical = 2
 size_flags_horizontal = 2
 size_flags_vertical = 2
 texture_normal = ExtResource( 8 )
+
+[node name="WinLayer" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="Control" type="Control" parent="WinLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlackOverlay" type="ColorRect" parent="WinLayer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0.490196 )
+
+[node name="Label" type="Label" parent="WinLayer/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -189.0
+margin_top = -88.5
+margin_right = 189.0
+margin_bottom = 88.5
+custom_fonts/font = SubResource( 1 )
+text = "Win!!!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="pressed" from="Buttons/TextureButton" to="." method="PauseButton_pressed"]
 [connection signal="pressed" from="PauseLayer/PauseMenu/TextureRect/ButtonsContainer/ResumeButton" to="." method="ResumeButton_pressed"]

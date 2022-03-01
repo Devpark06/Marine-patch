@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/Arrow.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -7,44 +7,18 @@
 [ext_resource path="res://Scenes/Arrow_holder.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/Line2D.gd" type="Script" id=6]
 [ext_resource path="res://Assets/Arrow/Chain.png" type="Texture" id=7]
-[ext_resource path="res://Scenes/Garbage/Astronout_helmet.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/Garbage/Book.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Garbage/Boots.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenes/Garbage/Cactus_pot.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Scenes/Garbage/Calculator.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Scenes/Garbage/Chainsaw.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Scenes/Garbage/Clamper.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scripts/Garbage spawner.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/UI/Hud.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Scenes/Garbage/Coffe_cup.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Scenes/Garbage/Glass.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Scenes/Garbage/Honey_Jar.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Scenes/Garbage/Lamp.tscn" type="PackedScene" id=19]
-[ext_resource path="res://Scenes/Garbage/Men_bag.tscn" type="PackedScene" id=20]
-[ext_resource path="res://Scenes/Garbage/Microwave_oven.tscn" type="PackedScene" id=21]
-[ext_resource path="res://Scenes/Garbage/News_paper.tscn" type="PackedScene" id=22]
-[ext_resource path="res://Scenes/Garbage/Paper_bag.tscn" type="PackedScene" id=23]
-[ext_resource path="res://Scenes/Garbage/Pepsi_can.tscn" type="PackedScene" id=24]
-[ext_resource path="res://Scenes/Garbage/Pillow.tscn" type="PackedScene" id=25]
-[ext_resource path="res://Scenes/Garbage/Plastic_bottle.tscn" type="PackedScene" id=26]
-[ext_resource path="res://Scenes/Garbage/Plastic_cup.tscn" type="PackedScene" id=27]
-[ext_resource path="res://Scenes/Garbage/Popcorn_cup.tscn" type="PackedScene" id=28]
-[ext_resource path="res://Scenes/Garbage/Shield.tscn" type="PackedScene" id=29]
-[ext_resource path="res://Scenes/Garbage/Sofa1.tscn" type="PackedScene" id=30]
-[ext_resource path="res://Scenes/Garbage/Sofa2.tscn" type="PackedScene" id=31]
-[ext_resource path="res://Scenes/Garbage/Wine_bottle.tscn" type="PackedScene" id=32]
-[ext_resource path="res://Scenes/Garbage/Wine_glass.tscn" type="PackedScene" id=33]
-[ext_resource path="res://Scenes/Garbage/Women_bag.tscn" type="PackedScene" id=34]
-[ext_resource path="res://Scenes/Garbage/Wood1.tscn" type="PackedScene" id=35]
-[ext_resource path="res://Scenes/Garbage/Wood2.tscn" type="PackedScene" id=36]
-[ext_resource path="res://Scenes/Garbage/Light_bulb.tscn" type="PackedScene" id=37]
+[ext_resource path="res://Scenes/Level.gd" type="Script" id=38]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 376, 30 )
 
-[node name="Node2D" type="Node2D"]
+[node name="Level" type="Node2D"]
+script = ExtResource( 38 )
 
 [node name="Ocean" parent="." instance=ExtResource( 3 )]
-scale = Vector2( 7.064, 5.503 )
+scale = Vector2( 4, 2 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1161, -376 )
@@ -74,164 +48,56 @@ texture_mode = 1
 joint_mode = 2
 script = ExtResource( 6 )
 
-[node name="Garbage" type="Node2D" parent="."]
+[node name="Garbage_spawner" type="Node2D" parent="."]
+script = ExtResource( 8 )
 
-[node name="Astronout helmet" parent="Garbage" instance=ExtResource( 8 )]
-position = Vector2( -905, -1210 )
+[node name="Positions" type="Node2D" parent="Garbage_spawner"]
 
-[node name="Book" parent="Garbage" instance=ExtResource( 9 )]
-position = Vector2( -1766, 1222 )
+[node name="Position2D" type="Position2D" parent="Garbage_spawner/Positions"]
+position = Vector2( 192, -512 )
 
-[node name="Boots" parent="Garbage" instance=ExtResource( 10 )]
-position = Vector2( 334, 1436 )
+[node name="Position2D2" type="Position2D" parent="Garbage_spawner/Positions"]
+position = Vector2( -712, 416 )
 
-[node name="Cactus_pot" parent="Garbage" instance=ExtResource( 11 )]
-position = Vector2( -2548, -657 )
+[node name="Position2D3" type="Position2D" parent="Garbage_spawner/Positions"]
+position = Vector2( -1480, -400 )
 
-[node name="Calculator" parent="Garbage" instance=ExtResource( 12 )]
-position = Vector2( -3347, 134 )
+[node name="Position2D4" type="Position2D" parent="Garbage_spawner/Positions"]
+position = Vector2( -1736, 480 )
 
-[node name="Chainsaw" parent="Garbage" instance=ExtResource( 13 )]
-position = Vector2( 1888, 2295 )
+[node name="Position2D5" type="Position2D" parent="Garbage_spawner/Positions"]
+position = Vector2( 296, 368 )
 
-[node name="Clamper" parent="Garbage" instance=ExtResource( 14 )]
-position = Vector2( 3667, -652 )
+[node name="Position2D6" type="Position2D" parent="Garbage_spawner/Positions"]
+position = Vector2( 1944, 504 )
 
-[node name="Coffe_cup" parent="Garbage" instance=ExtResource( 16 )]
-position = Vector2( 1541, -1437 )
+[node name="Position2D7" type="Position2D" parent="Garbage_spawner/Positions"]
+position = Vector2( 1416, -600 )
 
-[node name="Glass" parent="Garbage" instance=ExtResource( 17 )]
-position = Vector2( 2771, 924 )
+[node name="Position2D8" type="Position2D" parent="Garbage_spawner/Positions"]
+position = Vector2( -2248, -648 )
 
-[node name="Honey_Jar" parent="Garbage" instance=ExtResource( 18 )]
-position = Vector2( -2900, 2241 )
+[node name="Position2D9" type="Position2D" parent="Garbage_spawner/Positions"]
+position = Vector2( 2224, -584 )
 
-[node name="Lamp" parent="Garbage" instance=ExtResource( 19 )]
-position = Vector2( -533, 560 )
+[node name="Position2D10" type="Position2D" parent="Garbage_spawner/Positions"]
+position = Vector2( -752, -600 )
 
-[node name="Men_bag" parent="Garbage" instance=ExtResource( 20 )]
-position = Vector2( 576, -592 )
+[node name="Position2D11" type="Position2D" parent="Garbage_spawner/Positions"]
+position = Vector2( 728, -480 )
 
-[node name="Microwave_oven" parent="Garbage" instance=ExtResource( 21 )]
-position = Vector2( -784, -432 )
+[node name="Garbage" type="Node2D" parent="Garbage_spawner"]
 
-[node name="News_paper" parent="Garbage" instance=ExtResource( 22 )]
-position = Vector2( -192, -288 )
-
-[node name="Paper_bag" parent="Garbage" instance=ExtResource( 23 )]
-position = Vector2( -1152, -224 )
-
-[node name="Pepsi_can" parent="Garbage" instance=ExtResource( 24 )]
-position = Vector2( 96, -576 )
-
-[node name="Pillow" parent="Garbage" instance=ExtResource( 25 )]
-position = Vector2( -560, -80 )
-
-[node name="Plastic_bottle" parent="Garbage" instance=ExtResource( 26 )]
-position = Vector2( -448, -624 )
-
-[node name="Plastic_cup" parent="Garbage" instance=ExtResource( 27 )]
-position = Vector2( 496, -336 )
-
-[node name="Popcorn_cup" parent="Garbage" instance=ExtResource( 28 )]
-position = Vector2( -1280, -560 )
-
-[node name="Shield" parent="Garbage" instance=ExtResource( 29 )]
-position = Vector2( -1568, -32 )
-
-[node name="Sofa1" parent="Garbage" instance=ExtResource( 30 )]
-position = Vector2( -1888, -256 )
-
-[node name="Sofa2" parent="Garbage" instance=ExtResource( 31 )]
-position = Vector2( -2384, -64 )
-
-[node name="Wine_bottle" parent="Garbage" instance=ExtResource( 32 )]
-position = Vector2( -1968, -624 )
-
-[node name="Wine_glass" parent="Garbage" instance=ExtResource( 33 )]
-position = Vector2( -2640, -336 )
-
-[node name="Women_bag" parent="Garbage" instance=ExtResource( 34 )]
-position = Vector2( -3216, -256 )
-
-[node name="Wood1" parent="Garbage" instance=ExtResource( 35 )]
-position = Vector2( 2080, -224 )
-
-[node name="Wood2" parent="Garbage" instance=ExtResource( 36 )]
-position = Vector2( 2112, -528 )
-
-[node name="Light_bulb" parent="Garbage" instance=ExtResource( 37 )]
-position = Vector2( 736, -428 )
-
-[node name="Test_builds" type="Node2D" parent="."]
-position = Vector2( 9656, 0 )
-rotation = 1.5708
-scale = Vector2( 8, 10 )
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="Test_builds"]
-position = Vector2( 16.4375, 875.6 )
-rotation = -1.5708
-scale = Vector2( 0.1, 0.0625 )
-collision_layer = 3
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Test_builds/StaticBody2D2"]
-shape = SubResource( 1 )
-
-[node name="Polygon2D" type="Polygon2D" parent="Test_builds/StaticBody2D2"]
-color = Color( 0, 0, 0, 1 )
-polygon = PoolVector2Array( -376, -30, -376, 30, 376, 30, 376, -30, 376, -30 )
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="Test_builds"]
-position = Vector2( -188.312, 631.8 )
-rotation = -1.5708
-scale = Vector2( 0.1, 0.0625 )
-collision_layer = 3
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Test_builds/StaticBody2D3"]
-shape = SubResource( 1 )
-
-[node name="Polygon2D" type="Polygon2D" parent="Test_builds/StaticBody2D3"]
-color = Color( 0, 0, 0, 1 )
-polygon = PoolVector2Array( -376, -30, -376, 30, 376, 30, 376, -30, 376, -30 )
-
-[node name="StaticBody2D4" type="StaticBody2D" parent="Test_builds"]
-position = Vector2( 62.5, 1320.1 )
-rotation = -1.5708
-scale = Vector2( 0.1, 0.0625 )
-collision_layer = 3
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Test_builds/StaticBody2D4"]
-shape = SubResource( 1 )
-
-[node name="Polygon2D" type="Polygon2D" parent="Test_builds/StaticBody2D4"]
-color = Color( 0, 0, 0, 1 )
-polygon = PoolVector2Array( -376, -30, -376, 30, 376, 30, 376, -30, 376, -30 )
-
-[node name="StaticBody2D7" type="StaticBody2D" parent="Test_builds"]
-position = Vector2( -194.625, 1213.4 )
-rotation = -1.5708
-scale = Vector2( 0.1, 0.0625 )
-collision_layer = 3
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Test_builds/StaticBody2D7"]
-shape = SubResource( 1 )
-
-[node name="Polygon2D" type="Polygon2D" parent="Test_builds/StaticBody2D7"]
-color = Color( 0, 0, 0, 1 )
-polygon = PoolVector2Array( -376, -30, -376, 30, 376, 30, 376, -30, 376, -30 )
+[node name="Tween" type="Tween" parent="Garbage_spawner"]
 
 [node name="Test_limits" type="Node2D" parent="."]
-position = Vector2( 29, -2795 )
-scale = Vector2( 12, 5 )
+position = Vector2( -19, -1163 )
+scale = Vector2( 7, 2 )
 
 [node name="Wall1" type="StaticBody2D" parent="Test_limits"]
 position = Vector2( -385.28, 576.4 )
 rotation = 1.5708
-scale = Vector2( 1.6, 0.4 )
+scale = Vector2( 1.6, 0.6 )
 collision_layer = 3
 collision_mask = 3
 
@@ -245,7 +111,7 @@ polygon = PoolVector2Array( -376, -30, -376, 30, 376, 30, 376, -30, 376, -30 )
 [node name="Wall2" type="StaticBody2D" parent="Test_limits"]
 position = Vector2( 386.24, 576.4 )
 rotation = 1.5708
-scale = Vector2( 1.6, 0.4 )
+scale = Vector2( 1.6, 0.6 )
 collision_layer = 3
 collision_mask = 3
 
@@ -257,8 +123,8 @@ color = Color( 0, 0, 0, 1 )
 polygon = PoolVector2Array( -376, -30, -376, 30, 376, 30, 376, -30, 376, -30 )
 
 [node name="Floor" type="StaticBody2D" parent="Test_limits"]
-position = Vector2( 0, 1149.2 )
-scale = Vector2( 0.99, 1 )
+position = Vector2( 0, 1111.5 )
+scale = Vector2( 1, 2 )
 collision_layer = 3
 collision_mask = 3
 
@@ -266,6 +132,19 @@ collision_mask = 3
 shape = SubResource( 1 )
 
 [node name="Polygon2D" type="Polygon2D" parent="Test_limits/Floor"]
+color = Color( 0, 0, 0, 1 )
+polygon = PoolVector2Array( -376, -30, -376, 30, 376, 30, 376, -30, 376, -30 )
+
+[node name="Ceiling" type="StaticBody2D" parent="Test_limits"]
+position = Vector2( 0, 29.5 )
+scale = Vector2( 1, 2 )
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Test_limits/Ceiling"]
+shape = SubResource( 1 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Test_limits/Ceiling"]
 color = Color( 0, 0, 0, 1 )
 polygon = PoolVector2Array( -376, -30, -376, 30, 376, 30, 376, -30, 376, -30 )
 

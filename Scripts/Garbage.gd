@@ -1,11 +1,11 @@
 extends Node
 
-var got_hit = false
-var Arrow = get_parent().get_node("Player/Vectorcreator/Arrow")
+onready var Arrow = get_parent().get_node("Player/Vectorcreator/Arrow")
+onready var Garbage_spawner = get_parent().get_parent()
 
 func _enter_tree():
 	Global.Total_garbage_count += 1
-	
+
 func hit():
-	self.queue_free()
-	got_hit = true
+	var index = get_index()
+	Garbage_spawner.despawn(index)

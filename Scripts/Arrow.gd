@@ -34,7 +34,16 @@ func return_to():
 	self.sleeping = true
 	self.global_rotation = lerp_angle(self.global_rotation, Arrow_holder.global_rotation, 0.5)
 	if hit:
-		Trash_sprite.texture = null
+		$Tween.interpolate_property(
+			Trash_sprite,
+			"scale",
+			Trash_sprite.scale,
+			Vector2(0,0),
+			0.7,
+			Tween.TRANS_CUBIC,
+			Tween.EASE_OUT
+		)
+		$Tween.start()
 	self.global_position = Arrow_holder.global_position
 	self.global_rotation_degrees = Arrow_holder.global_rotation_degrees
 	state = Idle

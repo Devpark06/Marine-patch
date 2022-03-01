@@ -27,6 +27,8 @@ position = Vector2( 18, 0 )
 
 [node name="Arrow_head" type="Position2D" parent="Positions"]
 
+[node name="Tween" type="Tween" parent="."]
+
 [node name="Delay_for_pull" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
