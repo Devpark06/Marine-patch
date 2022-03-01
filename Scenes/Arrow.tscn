@@ -9,10 +9,28 @@ collision_mask = 2
 gravity_scale = 0.0
 script = ExtResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Trash" type="Sprite" parent="."]
+position = Vector2( -30, 0 )
+
+[node name="Arrow img" type="Sprite" parent="."]
 position = Vector2( -9, -9.53674e-07 )
 scale = Vector2( 0.0804598, 0.105263 )
 texture = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -25, -10, -36, 0, -25, 10, -25, 2, 19, 2, 19, -1, -25, -1 )
+
+[node name="Positions" type="Node2D" parent="."]
+
+[node name="Arrow_end" type="Position2D" parent="Positions"]
+position = Vector2( 18, 0 )
+
+[node name="Arrow_head" type="Position2D" parent="Positions"]
+
+[node name="Delay_for_pull" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="Hit" from="." to="." method="Return_when_hit"]
+[connection signal="body_entered" from="." to="." method="on_body_entered"]
+[connection signal="timeout" from="Delay_for_pull" to="." method="Return_when_timeup"]

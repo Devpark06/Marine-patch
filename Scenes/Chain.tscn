@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Assets/Arrow/Chain2.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Arrow/Chain1.png" type="Texture" id=2]
+[ext_resource path="res://Bin/Chain2.png" type="Texture" id=1]
+[ext_resource path="res://Bin/Chain1.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 24.3381, 17.3622 )
