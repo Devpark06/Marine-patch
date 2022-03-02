@@ -32,6 +32,8 @@ var packed_scenes = [
 	preload("res://Scenes/Garbage/Wood2.tscn")
 ]
 
+signal spawned()
+signal despawned(target)
 onready var Positions_node = $Positions
 onready var Garbage_node = $Garbage
 onready var Tween_node = $Tween
@@ -66,3 +68,4 @@ func spawn(i):
 func despawn(index):
 	var garbage_to_despawn = Garbage_node.get_child(index)
 	garbage_to_despawn.queue_free()
+	emit_signal("despawned", garbage_to_despawn)

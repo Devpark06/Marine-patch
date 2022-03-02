@@ -1,8 +1,8 @@
 extends Control
 
-onready var Garbage_counter = $Counters/Garbage_counter
+onready var Garbage_counter = $Container/Counters/Garbage_counter
 onready var Garbage_counter_label = Garbage_counter.get_node("Label")
-onready var Goin_counter = $Counters/Coin_counter
+onready var Goin_counter = $Container/Counters/Coin_counter
 onready var Pause_menu = $PauseLayer/PauseMenu
 
 func _ready():

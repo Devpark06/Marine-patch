@@ -1,18 +1,71 @@
-[gd_scene format=2]
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/UI/Hud/Minimap area.png" type="Texture" id=1]
+[ext_resource path="res://Assets/UI/Hud/Minimap frame.png" type="Texture" id=2]
+[ext_resource path="res://Assets/UI/Hud/Garbage.png" type="Texture" id=3]
+[ext_resource path="res://Assets/UI/Hud/Enemy.png" type="Texture" id=4]
+[ext_resource path="res://Assets/UI/Hud/Player.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/UI/MiniMap.gd" type="Script" id=6]
 
 [node name="MiniMap" type="MarginContainer"]
-margin_right = 200.0
-margin_bottom = 200.0
+margin_right = 150.0
+margin_bottom = 150.0
 custom_constants/margin_right = 5
 custom_constants/margin_top = 5
 custom_constants/margin_left = 5
 custom_constants/margin_bottom = 5
+script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 margin_left = 5.0
 margin_top = 5.0
-margin_right = 195.0
-margin_bottom = 195.0
+margin_right = 145.0
+margin_bottom = 145.0
+custom_constants/margin_right = 12
+custom_constants/margin_top = 12
+custom_constants/margin_left = 12
+custom_constants/margin_bottom = 12
+
+[node name="Area" type="TextureRect" parent="MarginContainer"]
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 128.0
+margin_bottom = 128.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 1
+
+[node name="PlayerMarker" type="Sprite" parent="MarginContainer/Area"]
+position = Vector2( 58, 58 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 5 )
+
+[node name="GarbageMarker" type="Sprite" parent="MarginContainer/Area"]
+visible = false
+position = Vector2( 42, 42 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 3 )
+
+[node name="MobMarker" type="Sprite" parent="MarginContainer/Area"]
+visible = false
+position = Vector2( 83, 81 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 4 )
+
+[node name="Frame" type="NinePatchRect" parent="."]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 145.0
+margin_bottom = 145.0
+texture = ExtResource( 2 )
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 64
+patch_margin_bottom = 64
+
+[node name="Tween_node" type="Tween" parent="."]
+
+[connection signal="gui_input" from="." to="." method="MiniMap_gui_input"]

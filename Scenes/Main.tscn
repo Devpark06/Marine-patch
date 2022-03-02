@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/Arrow.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Scripts/Line2D.gd" type="Script" id=6]
 [ext_resource path="res://Assets/Arrow/Chain.png" type="Texture" id=7]
 [ext_resource path="res://Scripts/Garbage spawner.gd" type="Script" id=8]
+[ext_resource path="res://Scenes/UI/MiniMap.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/UI/Hud.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/Level.gd" type="Script" id=38]
 
@@ -84,7 +85,7 @@ position = Vector2( 2224, -584 )
 position = Vector2( -752, -600 )
 
 [node name="Position2D11" type="Position2D" parent="Garbage_spawner/Positions"]
-position = Vector2( 728, -480 )
+position = Vector2( 407, -385 )
 
 [node name="Garbage" type="Node2D" parent="Garbage_spawner"]
 
@@ -152,7 +153,16 @@ polygon = PoolVector2Array( -376, -30, -376, 30, 376, 30, 376, -30, 376, -30 )
 
 [node name="Hud" parent="HudLayer" instance=ExtResource( 15 )]
 
+[node name="MiniMap" parent="HudLayer/Hud" instance=ExtResource( 9 )]
+margin_left = 15.0
+margin_top = 16.0
+margin_right = 165.0
+margin_bottom = 166.0
+player = NodePath("../../../Player")
+zoom = 2.0
+
 [connection signal="body_entered" from="Player/Vectorcreator" to="Player/Vectorcreator" method="on_body_entered"]
 [connection signal="input_event" from="Player/Vectorcreator" to="Player/Vectorcreator" method="on_Vectorcreator_input_event"]
 [connection signal="mouse_entered" from="Player/Vectorcreator" to="Player/Vectorcreator" method="mouse_entered"]
 [connection signal="mouse_exited" from="Player/Vectorcreator" to="Player/Vectorcreator" method="mouse_exited"]
+[connection signal="despawned" from="Garbage_spawner" to="HudLayer/Hud/MiniMap" method="on_Garbage_despawned"]
