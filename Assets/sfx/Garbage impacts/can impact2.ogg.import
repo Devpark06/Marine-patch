@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/can impact2.ogg-1bd25a3d7471d35ebd424e66944d3525.oggstr"
+
+[deps]
+
+source_file="res://Assets/sfx/Garbage impacts/can impact2.ogg"
+dest_files=[ "res://.import/can impact2.ogg-1bd25a3d7471d35ebd424e66944d3525.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scripts/UI/Hud.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/UI/Coin_counter.tscn" type="PackedScene" id=2]
@@ -10,14 +10,14 @@
 [ext_resource path="res://Assets/UI/Hud/Home button.png" type="Texture" id=8]
 [ext_resource path="res://Assets/UI/Hud/Restart button.png" type="Texture" id=9]
 [ext_resource path="res://Resourses/Shortcuts/ResumeShortcut.tres" type="ShortCut" id=10]
-[ext_resource path="res://Assets/Fonts/Roboto-Bold.ttf" type="DynamicFontData" id=11]
-
-[sub_resource type="DynamicFont" id=1]
-size = 150
-outline_size = 25
-outline_color = Color( 0, 0, 0, 1 )
-use_filter = true
-font_data = ExtResource( 11 )
+[ext_resource path="res://Resourses/Fonts/Bungee_regular.tres" type="DynamicFont" id=11]
+[ext_resource path="res://Resourses/Fonts/Fredoka_bold.tres" type="DynamicFont" id=12]
+[ext_resource path="res://Assets/UI/Hud/Coin.png" type="Texture" id=13]
+[ext_resource path="res://Resourses/Fonts/Roboto_bold.tres" type="DynamicFont" id=14]
+[ext_resource path="res://Assets/UI/Hud/Win panel.png" type="Texture" id=15]
+[ext_resource path="res://Assets/UI/Hud/Next button.png" type="Texture" id=16]
+[ext_resource path="res://Assets/UI/Hud/Loose panel.png" type="Texture" id=17]
+[ext_resource path="res://Assets/UI/Hud/Star .png" type="Texture" id=18]
 
 [node name="Hud" type="Control"]
 anchor_right = 1.0
@@ -36,47 +36,52 @@ margin_left = -321.0
 margin_top = 20.0
 margin_right = -20.0
 margin_bottom = 79.0
+grow_horizontal = 0
+alignment = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Counters" type="HBoxContainer" parent="Container"]
 margin_top = 9.0
-margin_right = 237.0
+margin_right = 243.0
 margin_bottom = 49.0
 grow_horizontal = 0
 rect_min_size = Vector2( 237, 38 )
 mouse_filter = 2
 input_pass_on_modal_close_click = false
+size_flags_horizontal = 0
 size_flags_vertical = 6
+alignment = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Garbage_counter" parent="Container/Counters" instance=ExtResource( 4 )]
-margin_right = 100.0
+margin_left = 0.0
+margin_right = 110.0
 
 [node name="Control" type="Control" parent="Container/Counters"]
-margin_left = 104.0
-margin_right = 129.0
+margin_left = 114.0
+margin_right = 139.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 25, 40 )
 
 [node name="Coin_counter" parent="Container/Counters" instance=ExtResource( 2 )]
-margin_left = 133.0
-margin_right = 233.0
+margin_left = 143.0
+margin_right = 243.0
 
 [node name="Control" type="Control" parent="Container"]
-margin_left = 241.0
-margin_right = 251.0
+margin_left = 247.0
+margin_right = 257.0
 margin_bottom = 38.0
 rect_min_size = Vector2( 10, 38 )
 size_flags_vertical = 0
 
 [node name="Buttons" type="HBoxContainer" parent="Container"]
-margin_left = 255.0
+margin_left = 261.0
 margin_top = 4.0
-margin_right = 301.0
+margin_right = 307.0
 margin_bottom = 54.0
 mouse_filter = 2
 input_pass_on_modal_close_click = false
@@ -113,7 +118,7 @@ anchor_bottom = 1.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 0.490196 )
 
-[node name="TextureRect" type="TextureRect" parent="PauseLayer/PauseMenu"]
+[node name="NinePatchRect" type="NinePatchRect" parent="PauseLayer/PauseMenu"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -123,12 +128,32 @@ margin_top = -138.0
 margin_right = 215.0
 margin_bottom = 138.0
 rect_min_size = Vector2( 430, 276 )
+size_flags_horizontal = 3
 texture = ExtResource( 6 )
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="Label" type="Label" parent="PauseLayer/PauseMenu/NinePatchRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -131.0
+margin_top = -93.5
+margin_right = 131.0
+margin_bottom = 3.5
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 12 )
+text = "Paused"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ButtonsContainer" type="HBoxContainer" parent="PauseLayer/PauseMenu/TextureRect"]
+[node name="ButtonsContainer" type="HBoxContainer" parent="PauseLayer/PauseMenu/NinePatchRect"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -144,7 +169,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ResumeButton" type="TextureButton" parent="PauseLayer/PauseMenu/TextureRect/ButtonsContainer"]
+[node name="ResumeButton" type="TextureButton" parent="PauseLayer/PauseMenu/NinePatchRect/ButtonsContainer"]
 margin_right = 47.0
 margin_bottom = 50.0
 grow_horizontal = 2
@@ -154,7 +179,7 @@ size_flags_vertical = 2
 shortcut = ExtResource( 10 )
 texture_normal = ExtResource( 7 )
 
-[node name="RestartButton" type="TextureButton" parent="PauseLayer/PauseMenu/TextureRect/ButtonsContainer"]
+[node name="RestartButton" type="TextureButton" parent="PauseLayer/PauseMenu/NinePatchRect/ButtonsContainer"]
 margin_left = 59.0
 margin_right = 105.0
 margin_bottom = 50.0
@@ -164,7 +189,7 @@ size_flags_horizontal = 2
 size_flags_vertical = 2
 texture_normal = ExtResource( 9 )
 
-[node name="HomeButton" type="TextureButton" parent="PauseLayer/PauseMenu/TextureRect/ButtonsContainer"]
+[node name="HomeButton" type="TextureButton" parent="PauseLayer/PauseMenu/NinePatchRect/ButtonsContainer"]
 margin_left = 119.0
 margin_right = 166.0
 margin_bottom = 50.0
@@ -174,10 +199,10 @@ size_flags_horizontal = 2
 size_flags_vertical = 2
 texture_normal = ExtResource( 8 )
 
-[node name="WinLayer" type="CanvasLayer" parent="."]
+[node name="WinLooseLayer" type="CanvasLayer" parent="."]
 layer = 3
 
-[node name="Control" type="Control" parent="WinLayer"]
+[node name="WinScreen" type="Control" parent="WinLooseLayer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -185,30 +210,326 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BlackOverlay" type="ColorRect" parent="WinLayer/Control"]
+[node name="BlackOverlay" type="ColorRect" parent="WinLooseLayer/WinScreen"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-color = Color( 0, 0, 0, 0.490196 )
+color = Color( 0, 0, 0, 0.301961 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Label" type="Label" parent="WinLayer/Control"]
+[node name="NinePatchRect" type="NinePatchRect" parent="WinLooseLayer/WinScreen"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -189.0
-margin_top = -88.5
-margin_right = 189.0
-margin_bottom = 88.5
-custom_fonts/font = SubResource( 1 )
-text = "Win!!!"
+margin_left = -249.0
+margin_top = -159.0
+margin_right = 249.0
+margin_bottom = 159.0
+rect_min_size = Vector2( 430, 276 )
+size_flags_horizontal = 3
+texture = ExtResource( 15 )
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Star1" type="TextureRect" parent="WinLooseLayer/WinScreen/NinePatchRect"]
+visible = false
+margin_top = -56.0
+margin_right = 150.0
+margin_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_pivot_offset = Vector2( 75, 69 )
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Star2" type="TextureRect" parent="WinLooseLayer/WinScreen/NinePatchRect"]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -91.0
+margin_top = -100.0
+margin_right = 91.0
+margin_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 182, 166 )
+rect_pivot_offset = Vector2( 75, 69 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 18 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Star3" type="TextureRect" parent="WinLooseLayer/WinScreen/NinePatchRect"]
+visible = false
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -150.0
+margin_top = -56.0
+margin_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_pivot_offset = Vector2( 75, 69 )
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WinLooseLayer/WinScreen/NinePatchRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control1" type="Control" parent="WinLooseLayer/WinScreen/NinePatchRect/VBoxContainer"]
+margin_right = 498.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 498, 70 )
+
+[node name="Label" type="Label" parent="WinLooseLayer/WinScreen/NinePatchRect/VBoxContainer"]
+margin_top = 74.0
+margin_right = 498.0
+margin_bottom = 145.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 11 )
+text = "You win!"
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Control2" type="Control" parent="WinLooseLayer/WinScreen/NinePatchRect/VBoxContainer"]
+margin_top = 149.0
+margin_right = 498.0
+margin_bottom = 164.0
+rect_min_size = Vector2( 498, 15 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="WinLooseLayer/WinScreen/NinePatchRect/VBoxContainer"]
+margin_top = 168.0
+margin_right = 498.0
+margin_bottom = 204.0
+rect_min_size = Vector2( 498, 30 )
+size_flags_horizontal = 0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="WinLooseLayer/WinScreen/NinePatchRect/VBoxContainer/HBoxContainer"]
+margin_left = 207.0
+margin_right = 247.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 40, 36 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 13 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="WinLooseLayer/WinScreen/NinePatchRect/VBoxContainer/HBoxContainer"]
+margin_left = 251.0
+margin_right = 291.0
+margin_bottom = 36.0
+custom_fonts/font = ExtResource( 14 )
+text = "+ 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control3" type="Control" parent="WinLooseLayer/WinScreen/NinePatchRect/VBoxContainer"]
+margin_top = 208.0
+margin_right = 498.0
+margin_bottom = 218.0
+rect_min_size = Vector2( 498, 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="WinLooseLayer/WinScreen/NinePatchRect/VBoxContainer"]
+margin_top = 222.0
+margin_right = 498.0
+margin_bottom = 272.0
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="WinLooseLayer/WinScreen/NinePatchRect/VBoxContainer/CenterContainer"]
+margin_left = 175.0
+margin_right = 323.0
+margin_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextButton" type="TextureButton" parent="WinLooseLayer/WinScreen/NinePatchRect/VBoxContainer/CenterContainer/ButtonsContainer"]
+margin_right = 47.0
+margin_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+shortcut = ExtResource( 10 )
+texture_normal = ExtResource( 16 )
+
+[node name="RestartButton" type="TextureButton" parent="WinLooseLayer/WinScreen/NinePatchRect/VBoxContainer/CenterContainer/ButtonsContainer"]
+margin_left = 51.0
+margin_right = 97.0
+margin_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+texture_normal = ExtResource( 9 )
+
+[node name="HomeButton" type="TextureButton" parent="WinLooseLayer/WinScreen/NinePatchRect/VBoxContainer/CenterContainer/ButtonsContainer"]
+margin_left = 101.0
+margin_right = 148.0
+margin_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+texture_normal = ExtResource( 8 )
+
+[node name="LooseScreen" type="Control" parent="WinLooseLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlackOverlay" type="ColorRect" parent="WinLooseLayer/LooseScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0.301961 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="WinLooseLayer/LooseScreen"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -249.0
+margin_top = -159.0
+margin_right = 249.0
+margin_bottom = 159.0
+rect_min_size = Vector2( 430, 276 )
+size_flags_horizontal = 3
+texture = ExtResource( 17 )
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WinLooseLayer/LooseScreen/NinePatchRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control1" type="Control" parent="WinLooseLayer/LooseScreen/NinePatchRect/VBoxContainer"]
+margin_right = 498.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 498, 70 )
+
+[node name="Label" type="Label" parent="WinLooseLayer/LooseScreen/NinePatchRect/VBoxContainer"]
+margin_top = 74.0
+margin_right = 498.0
+margin_bottom = 145.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 11 )
+text = "You Loose!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control2" type="Control" parent="WinLooseLayer/LooseScreen/NinePatchRect/VBoxContainer"]
+margin_top = 149.0
+margin_right = 498.0
+margin_bottom = 169.0
+rect_min_size = Vector2( 498, 20 )
+
+[node name="CenterContainer" type="CenterContainer" parent="WinLooseLayer/LooseScreen/NinePatchRect/VBoxContainer"]
+margin_top = 173.0
+margin_right = 498.0
+margin_bottom = 223.0
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="WinLooseLayer/LooseScreen/NinePatchRect/VBoxContainer/CenterContainer"]
+margin_left = 200.0
+margin_right = 297.0
+margin_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RestartButton" type="TextureButton" parent="WinLooseLayer/LooseScreen/NinePatchRect/VBoxContainer/CenterContainer/ButtonsContainer"]
+margin_right = 46.0
+margin_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+texture_normal = ExtResource( 9 )
+
+[node name="HomeButton" type="TextureButton" parent="WinLooseLayer/LooseScreen/NinePatchRect/VBoxContainer/CenterContainer/ButtonsContainer"]
+margin_left = 50.0
+margin_right = 97.0
+margin_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+texture_normal = ExtResource( 8 )
+
+[node name="Tween1" type="Tween" parent="."]
+
+[node name="Tween2" type="Tween" parent="."]
+
+[node name="Tween3" type="Tween" parent="."]
+
 [connection signal="pressed" from="Container/Buttons/TextureButton" to="." method="PauseButton_pressed"]
-[connection signal="pressed" from="PauseLayer/PauseMenu/TextureRect/ButtonsContainer/ResumeButton" to="." method="ResumeButton_pressed"]
-[connection signal="pressed" from="PauseLayer/PauseMenu/TextureRect/ButtonsContainer/RestartButton" to="." method="RestartButton_pressed"]
-[connection signal="pressed" from="PauseLayer/PauseMenu/TextureRect/ButtonsContainer/HomeButton" to="." method="HomeButton_pressed"]
+[connection signal="pressed" from="PauseLayer/PauseMenu/NinePatchRect/ButtonsContainer/ResumeButton" to="." method="ResumeButton_pressed"]
+[connection signal="pressed" from="PauseLayer/PauseMenu/NinePatchRect/ButtonsContainer/RestartButton" to="." method="RestartButton_pressed"]
+[connection signal="pressed" from="PauseLayer/PauseMenu/NinePatchRect/ButtonsContainer/HomeButton" to="." method="HomeButton_pressed"]
+[connection signal="pressed" from="WinLooseLayer/WinScreen/NinePatchRect/VBoxContainer/CenterContainer/ButtonsContainer/RestartButton" to="." method="RestartButton_pressed"]
+[connection signal="pressed" from="WinLooseLayer/WinScreen/NinePatchRect/VBoxContainer/CenterContainer/ButtonsContainer/HomeButton" to="." method="HomeButton_pressed"]
+[connection signal="pressed" from="WinLooseLayer/LooseScreen/NinePatchRect/VBoxContainer/CenterContainer/ButtonsContainer/RestartButton" to="." method="RestartButton_pressed"]
+[connection signal="pressed" from="WinLooseLayer/LooseScreen/NinePatchRect/VBoxContainer/CenterContainer/ButtonsContainer/HomeButton" to="." method="HomeButton_pressed"]

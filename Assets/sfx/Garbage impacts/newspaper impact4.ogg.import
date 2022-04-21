@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/newspaper impact4.ogg-8e5064d2b3ed013724b50e76796c3392.oggstr"
+
+[deps]
+
+source_file="res://Assets/sfx/Garbage impacts/newspaper impact4.ogg"
+dest_files=[ "res://.import/newspaper impact4.ogg-8e5064d2b3ed013724b50e76796c3392.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

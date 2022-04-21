@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/calculator impact.ogg-7fff980cecc4766576e3baa86ec8cef9.oggstr"
+
+[deps]
+
+source_file="res://Assets/sfx/Garbage impacts/calculator impact.ogg"
+dest_files=[ "res://.import/calculator impact.ogg-7fff980cecc4766576e3baa86ec8cef9.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

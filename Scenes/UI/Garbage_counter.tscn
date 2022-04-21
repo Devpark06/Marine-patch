@@ -1,17 +1,25 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/UI/Hud/Container.png" type="Texture" id=1]
 [ext_resource path="res://Assets/UI/Hud/Garbage ico.png" type="Texture" id=2]
-[ext_resource path="res://Resourses/Fonts/Roboto_bold_font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Resourses/Fonts/Roboto_bold.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Scripts/UI/counter.gd" type="Script" id=4]
 
 [node name="Garbage_counter" type="NinePatchRect"]
-margin_right = 110.0
+margin_left = -1.0
+margin_right = 109.0
 margin_bottom = 40.0
-rect_min_size = Vector2( 100, 40 )
+grow_horizontal = 0
+rect_min_size = Vector2( 110, 40 )
 input_pass_on_modal_close_click = false
 size_flags_horizontal = 0
 size_flags_vertical = 0
 texture = ExtResource( 1 )
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -21,10 +29,10 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -30.0
-margin_top = -40.0
-margin_right = 16.0
-margin_bottom = 26.0
+margin_left = -25.0
+margin_top = -41.0
+margin_right = 21.0
+margin_bottom = 25.0
 mouse_filter = 2
 input_pass_on_modal_close_click = false
 texture = ExtResource( 2 )
@@ -33,15 +41,12 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
-anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -51.0
+margin_left = 19.0
 margin_top = -18.0
-margin_right = 34.0
+margin_right = 78.0
 margin_bottom = 18.0
-grow_horizontal = 0
 rect_min_size = Vector2( 59, 36 )
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 3 )
@@ -51,3 +56,5 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[connection signal="resized" from="Label" to="." method="Label_resized"]

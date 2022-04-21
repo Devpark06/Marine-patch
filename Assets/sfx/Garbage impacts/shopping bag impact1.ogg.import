@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/shopping bag impact1.ogg-d9fa20c967ed4e3eb86efe89be4b4dfd.oggstr"
+
+[deps]
+
+source_file="res://Assets/sfx/Garbage impacts/shopping bag impact1.ogg"
+dest_files=[ "res://.import/shopping bag impact1.ogg-d9fa20c967ed4e3eb86efe89be4b4dfd.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

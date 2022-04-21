@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/plastic impact5.ogg-ec73bd68241fda6d7c915a4bc524af6e.oggstr"
+
+[deps]
+
+source_file="res://Assets/sfx/Garbage impacts/plastic impact5.ogg"
+dest_files=[ "res://.import/plastic impact5.ogg-ec73bd68241fda6d7c915a4bc524af6e.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

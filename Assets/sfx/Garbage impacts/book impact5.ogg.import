@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/book impact5.ogg-54752386ff562bddca94fafc7f9dddfc.oggstr"
+
+[deps]
+
+source_file="res://Assets/sfx/Garbage impacts/book impact5.ogg"
+dest_files=[ "res://.import/book impact5.ogg-54752386ff562bddca94fafc7f9dddfc.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

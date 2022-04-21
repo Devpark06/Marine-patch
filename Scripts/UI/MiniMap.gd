@@ -21,7 +21,7 @@ func _ready():
 		new_garbage_marker.show()
 		markers[item] = new_garbage_marker
 	
-func _process(delta):
+func _process(_delta):
 	if !player:
 		return
 	player_marker.rotation = get_node(player).rotation + PI / 2

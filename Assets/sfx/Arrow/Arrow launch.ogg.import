@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Arrow launch.ogg-67a248b23601cf76bf978cdb98351392.oggstr"
+
+[deps]
+
+source_file="res://Assets/sfx/Arrow/Arrow launch.ogg"
+dest_files=[ "res://.import/Arrow launch.ogg-67a248b23601cf76bf978cdb98351392.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

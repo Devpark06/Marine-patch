@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/wood impact5.ogg-0aef2a954c02f53f66efd4b73b3af443.oggstr"
+
+[deps]
+
+source_file="res://Assets/sfx/Garbage impacts/wood impact5.ogg"
+dest_files=[ "res://.import/wood impact5.ogg-0aef2a954c02f53f66efd4b73b3af443.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

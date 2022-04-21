@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/leather impact3.ogg-2f926d9efdc3b32542440496927250fd.oggstr"
+
+[deps]
+
+source_file="res://Assets/sfx/Garbage impacts/leather impact3.ogg"
+dest_files=[ "res://.import/leather impact3.ogg-2f926d9efdc3b32542440496927250fd.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

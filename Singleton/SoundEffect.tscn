@@ -1,0 +1,331 @@
+[gd_scene load_steps=58 format=2]
+
+[ext_resource path="res://Singleton/SoundEffect.gd" type="Script" id=1]
+[ext_resource path="res://Assets/sfx/submarine.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Assets/sfx/Arrow/Arrow launch.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Assets/sfx/Garbage impacts/can impact2.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Assets/sfx/Garbage impacts/can impact1.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Assets/sfx/Garbage impacts/book impact5.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Assets/sfx/Garbage impacts/book impact3.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Assets/sfx/Garbage impacts/book impact4.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Assets/sfx/Garbage impacts/can impact4.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Assets/sfx/Garbage impacts/book impact2.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Assets/sfx/Garbage impacts/book impact1.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Assets/sfx/Garbage impacts/can impact5.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Assets/sfx/Garbage impacts/can impact3.ogg" type="AudioStream" id=13]
+[ext_resource path="res://Assets/sfx/Garbage impacts/glass impact4.ogg" type="AudioStream" id=14]
+[ext_resource path="res://Assets/sfx/Garbage impacts/glass impact5.ogg" type="AudioStream" id=15]
+[ext_resource path="res://Assets/sfx/Garbage impacts/glass impact1.ogg" type="AudioStream" id=16]
+[ext_resource path="res://Assets/sfx/Garbage impacts/glass impact2.ogg" type="AudioStream" id=17]
+[ext_resource path="res://Assets/sfx/Garbage impacts/glass impact3.ogg" type="AudioStream" id=18]
+[ext_resource path="res://Assets/sfx/Garbage impacts/leather impact2.ogg" type="AudioStream" id=19]
+[ext_resource path="res://Assets/sfx/Garbage impacts/leather impact5.ogg" type="AudioStream" id=20]
+[ext_resource path="res://Assets/sfx/Garbage impacts/leather impact1.ogg" type="AudioStream" id=21]
+[ext_resource path="res://Assets/sfx/Garbage impacts/leather impact3.ogg" type="AudioStream" id=22]
+[ext_resource path="res://Assets/sfx/Garbage impacts/leather impact4.ogg" type="AudioStream" id=23]
+[ext_resource path="res://Assets/sfx/Garbage impacts/metalic impact2.ogg" type="AudioStream" id=24]
+[ext_resource path="res://Assets/sfx/Garbage impacts/metalic impact1.ogg" type="AudioStream" id=25]
+[ext_resource path="res://Assets/sfx/Garbage impacts/metalic impact3.ogg" type="AudioStream" id=26]
+[ext_resource path="res://Assets/sfx/Garbage impacts/metalic impact4.ogg" type="AudioStream" id=27]
+[ext_resource path="res://Assets/sfx/Garbage impacts/metalic impact5.ogg" type="AudioStream" id=28]
+[ext_resource path="res://Assets/sfx/Garbage impacts/newspaper impact5.ogg" type="AudioStream" id=29]
+[ext_resource path="res://Assets/sfx/Garbage impacts/newspaper impact4.ogg" type="AudioStream" id=30]
+[ext_resource path="res://Assets/sfx/Garbage impacts/newspaper impact2.ogg" type="AudioStream" id=31]
+[ext_resource path="res://Assets/sfx/Garbage impacts/newspaper impact3.ogg" type="AudioStream" id=32]
+[ext_resource path="res://Assets/sfx/Garbage impacts/newspaper impact1.ogg" type="AudioStream" id=33]
+[ext_resource path="res://Assets/sfx/Garbage impacts/pillow impact1.ogg" type="AudioStream" id=34]
+[ext_resource path="res://Assets/sfx/Garbage impacts/pillow impact2.ogg" type="AudioStream" id=35]
+[ext_resource path="res://Assets/sfx/Garbage impacts/pillow impact3.ogg" type="AudioStream" id=36]
+[ext_resource path="res://Assets/sfx/Garbage impacts/pillow impact4.ogg" type="AudioStream" id=37]
+[ext_resource path="res://Assets/sfx/Garbage impacts/pillow impact5.ogg" type="AudioStream" id=38]
+[ext_resource path="res://Assets/sfx/Garbage impacts/sofa impact 1.ogg" type="AudioStream" id=39]
+[ext_resource path="res://Assets/sfx/Garbage impacts/plastic impact2.ogg" type="AudioStream" id=40]
+[ext_resource path="res://Assets/sfx/Garbage impacts/plastic impact5.ogg" type="AudioStream" id=41]
+[ext_resource path="res://Assets/sfx/Garbage impacts/plastic impact1.ogg" type="AudioStream" id=42]
+[ext_resource path="res://Assets/sfx/Garbage impacts/plastic impact3.ogg" type="AudioStream" id=43]
+[ext_resource path="res://Assets/sfx/Garbage impacts/shopping bag impact3.ogg" type="AudioStream" id=44]
+[ext_resource path="res://Assets/sfx/Garbage impacts/shopping bag impact1.ogg" type="AudioStream" id=45]
+[ext_resource path="res://Assets/sfx/Garbage impacts/wood impact3.ogg" type="AudioStream" id=46]
+[ext_resource path="res://Assets/sfx/Garbage impacts/wood impact4.ogg" type="AudioStream" id=47]
+[ext_resource path="res://Assets/sfx/Garbage impacts/sofa impact 4.ogg" type="AudioStream" id=48]
+[ext_resource path="res://Assets/sfx/Garbage impacts/sofa impact 2.ogg" type="AudioStream" id=49]
+[ext_resource path="res://Assets/sfx/Garbage impacts/shopping bag impact2.ogg" type="AudioStream" id=50]
+[ext_resource path="res://Assets/sfx/Garbage impacts/wood impact2.ogg" type="AudioStream" id=51]
+[ext_resource path="res://Assets/sfx/Garbage impacts/wood impact1.ogg" type="AudioStream" id=52]
+[ext_resource path="res://Assets/sfx/Garbage impacts/sofa impact 5.ogg" type="AudioStream" id=53]
+[ext_resource path="res://Assets/sfx/Garbage impacts/sofa impact 3.ogg" type="AudioStream" id=54]
+[ext_resource path="res://Assets/sfx/Garbage impacts/wood impact5.ogg" type="AudioStream" id=55]
+[ext_resource path="res://Assets/sfx/Garbage impacts/plastic impact4.ogg" type="AudioStream" id=56]
+[ext_resource path="res://Assets/sfx/water splash.ogg" type="AudioStream" id=57]
+
+[node name="SoundEffect" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Submarine" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -15.376
+pitch_scale = 0.1
+bus = "SoundEffect"
+
+[node name="Arrow" type="Node2D" parent="."]
+
+[node name="ArrowLaunch" type="AudioStreamPlayer" parent="Arrow"]
+stream = ExtResource( 3 )
+bus = "SoundEffect"
+
+[node name="Splash" type="Node2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="WaterSplash" type="AudioStreamPlayer" parent="Splash"]
+stream = ExtResource( 57 )
+bus = "SoundEffect"
+
+[node name="Impact" type="Node2D" parent="."]
+
+[node name="Book impact" type="Node2D" parent="Impact"]
+script = ExtResource( 1 )
+
+[node name="1" type="AudioStreamPlayer" parent="Impact/Book impact"]
+stream = ExtResource( 11 )
+bus = "SoundEffect"
+
+[node name="2" type="AudioStreamPlayer" parent="Impact/Book impact"]
+stream = ExtResource( 10 )
+bus = "SoundEffect"
+
+[node name="3" type="AudioStreamPlayer" parent="Impact/Book impact"]
+stream = ExtResource( 7 )
+bus = "SoundEffect"
+
+[node name="4" type="AudioStreamPlayer" parent="Impact/Book impact"]
+stream = ExtResource( 8 )
+bus = "SoundEffect"
+
+[node name="5" type="AudioStreamPlayer" parent="Impact/Book impact"]
+stream = ExtResource( 6 )
+bus = "SoundEffect"
+
+[node name="Calculator impact" type="AudioStreamPlayer" parent="Impact"]
+bus = "SoundEffect"
+
+[node name="Can impact" type="Node2D" parent="Impact"]
+script = ExtResource( 1 )
+
+[node name="1" type="AudioStreamPlayer" parent="Impact/Can impact"]
+stream = ExtResource( 5 )
+bus = "SoundEffect"
+
+[node name="2" type="AudioStreamPlayer" parent="Impact/Can impact"]
+stream = ExtResource( 4 )
+bus = "SoundEffect"
+
+[node name="3" type="AudioStreamPlayer" parent="Impact/Can impact"]
+stream = ExtResource( 13 )
+bus = "SoundEffect"
+
+[node name="4" type="AudioStreamPlayer" parent="Impact/Can impact"]
+stream = ExtResource( 9 )
+bus = "SoundEffect"
+
+[node name="5" type="AudioStreamPlayer" parent="Impact/Can impact"]
+stream = ExtResource( 12 )
+bus = "SoundEffect"
+
+[node name="Glass impact" type="Node2D" parent="Impact"]
+script = ExtResource( 1 )
+
+[node name="1" type="AudioStreamPlayer" parent="Impact/Glass impact"]
+stream = ExtResource( 16 )
+bus = "SoundEffect"
+
+[node name="2" type="AudioStreamPlayer" parent="Impact/Glass impact"]
+stream = ExtResource( 17 )
+bus = "SoundEffect"
+
+[node name="3" type="AudioStreamPlayer" parent="Impact/Glass impact"]
+stream = ExtResource( 18 )
+bus = "SoundEffect"
+
+[node name="4" type="AudioStreamPlayer" parent="Impact/Glass impact"]
+stream = ExtResource( 14 )
+bus = "SoundEffect"
+
+[node name="5" type="AudioStreamPlayer" parent="Impact/Glass impact"]
+stream = ExtResource( 15 )
+bus = "SoundEffect"
+
+[node name="Leather impact" type="Node2D" parent="Impact"]
+script = ExtResource( 1 )
+
+[node name="1" type="AudioStreamPlayer" parent="Impact/Leather impact"]
+stream = ExtResource( 21 )
+bus = "SoundEffect"
+
+[node name="2" type="AudioStreamPlayer" parent="Impact/Leather impact"]
+stream = ExtResource( 19 )
+bus = "SoundEffect"
+
+[node name="3" type="AudioStreamPlayer" parent="Impact/Leather impact"]
+stream = ExtResource( 22 )
+bus = "SoundEffect"
+
+[node name="4" type="AudioStreamPlayer" parent="Impact/Leather impact"]
+stream = ExtResource( 23 )
+bus = "SoundEffect"
+
+[node name="5" type="AudioStreamPlayer" parent="Impact/Leather impact"]
+stream = ExtResource( 20 )
+bus = "SoundEffect"
+
+[node name="Metalic impact" type="Node2D" parent="Impact"]
+script = ExtResource( 1 )
+
+[node name="1" type="AudioStreamPlayer" parent="Impact/Metalic impact"]
+stream = ExtResource( 25 )
+bus = "SoundEffect"
+
+[node name="2" type="AudioStreamPlayer" parent="Impact/Metalic impact"]
+stream = ExtResource( 24 )
+bus = "SoundEffect"
+
+[node name="3" type="AudioStreamPlayer" parent="Impact/Metalic impact"]
+stream = ExtResource( 26 )
+bus = "SoundEffect"
+
+[node name="4" type="AudioStreamPlayer" parent="Impact/Metalic impact"]
+stream = ExtResource( 27 )
+bus = "SoundEffect"
+
+[node name="5" type="AudioStreamPlayer" parent="Impact/Metalic impact"]
+stream = ExtResource( 28 )
+bus = "SoundEffect"
+
+[node name="Newspaper impact" type="Node2D" parent="Impact"]
+script = ExtResource( 1 )
+
+[node name="1" type="AudioStreamPlayer" parent="Impact/Newspaper impact"]
+stream = ExtResource( 33 )
+bus = "SoundEffect"
+
+[node name="2" type="AudioStreamPlayer" parent="Impact/Newspaper impact"]
+stream = ExtResource( 31 )
+bus = "SoundEffect"
+
+[node name="3" type="AudioStreamPlayer" parent="Impact/Newspaper impact"]
+stream = ExtResource( 32 )
+bus = "SoundEffect"
+
+[node name="4" type="AudioStreamPlayer" parent="Impact/Newspaper impact"]
+stream = ExtResource( 30 )
+bus = "SoundEffect"
+
+[node name="5" type="AudioStreamPlayer" parent="Impact/Newspaper impact"]
+stream = ExtResource( 29 )
+bus = "SoundEffect"
+
+[node name="Pillow impact" type="Node2D" parent="Impact"]
+script = ExtResource( 1 )
+
+[node name="1" type="AudioStreamPlayer" parent="Impact/Pillow impact"]
+stream = ExtResource( 34 )
+bus = "SoundEffect"
+
+[node name="2" type="AudioStreamPlayer" parent="Impact/Pillow impact"]
+stream = ExtResource( 35 )
+bus = "SoundEffect"
+
+[node name="3" type="AudioStreamPlayer" parent="Impact/Pillow impact"]
+stream = ExtResource( 36 )
+bus = "SoundEffect"
+
+[node name="4" type="AudioStreamPlayer" parent="Impact/Pillow impact"]
+stream = ExtResource( 37 )
+bus = "SoundEffect"
+
+[node name="5" type="AudioStreamPlayer" parent="Impact/Pillow impact"]
+stream = ExtResource( 38 )
+bus = "SoundEffect"
+
+[node name="Shopping bag impact" type="Node2D" parent="Impact"]
+script = ExtResource( 1 )
+
+[node name="1" type="AudioStreamPlayer" parent="Impact/Shopping bag impact"]
+stream = ExtResource( 45 )
+bus = "SoundEffect"
+
+[node name="2" type="AudioStreamPlayer" parent="Impact/Shopping bag impact"]
+stream = ExtResource( 50 )
+bus = "SoundEffect"
+
+[node name="3" type="AudioStreamPlayer" parent="Impact/Shopping bag impact"]
+stream = ExtResource( 44 )
+bus = "SoundEffect"
+
+[node name="Sofa impact" type="Node2D" parent="Impact"]
+script = ExtResource( 1 )
+
+[node name="1" type="AudioStreamPlayer" parent="Impact/Sofa impact"]
+stream = ExtResource( 39 )
+bus = "SoundEffect"
+
+[node name="2" type="AudioStreamPlayer" parent="Impact/Sofa impact"]
+stream = ExtResource( 49 )
+bus = "SoundEffect"
+
+[node name="3" type="AudioStreamPlayer" parent="Impact/Sofa impact"]
+stream = ExtResource( 54 )
+bus = "SoundEffect"
+
+[node name="4" type="AudioStreamPlayer" parent="Impact/Sofa impact"]
+stream = ExtResource( 48 )
+bus = "SoundEffect"
+
+[node name="5" type="AudioStreamPlayer" parent="Impact/Sofa impact"]
+stream = ExtResource( 53 )
+bus = "SoundEffect"
+
+[node name="Wood impact" type="Node2D" parent="Impact"]
+script = ExtResource( 1 )
+
+[node name="1" type="AudioStreamPlayer" parent="Impact/Wood impact"]
+stream = ExtResource( 52 )
+bus = "SoundEffect"
+
+[node name="2" type="AudioStreamPlayer" parent="Impact/Wood impact"]
+stream = ExtResource( 51 )
+bus = "SoundEffect"
+
+[node name="3" type="AudioStreamPlayer" parent="Impact/Wood impact"]
+stream = ExtResource( 46 )
+bus = "SoundEffect"
+
+[node name="4" type="AudioStreamPlayer" parent="Impact/Wood impact"]
+stream = ExtResource( 47 )
+bus = "SoundEffect"
+
+[node name="5" type="AudioStreamPlayer" parent="Impact/Wood impact"]
+stream = ExtResource( 55 )
+bus = "SoundEffect"
+
+[node name="Plastic impact" type="Node2D" parent="Impact"]
+script = ExtResource( 1 )
+
+[node name="1" type="AudioStreamPlayer" parent="Impact/Plastic impact"]
+stream = ExtResource( 42 )
+bus = "SoundEffect"
+
+[node name="2" type="AudioStreamPlayer" parent="Impact/Plastic impact"]
+stream = ExtResource( 40 )
+bus = "SoundEffect"
+
+[node name="3" type="AudioStreamPlayer" parent="Impact/Plastic impact"]
+stream = ExtResource( 43 )
+bus = "SoundEffect"
+
+[node name="4" type="AudioStreamPlayer" parent="Impact/Plastic impact"]
+stream = ExtResource( 56 )
+bus = "SoundEffect"
+
+[node name="5" type="AudioStreamPlayer" parent="Impact/Plastic impact"]
+stream = ExtResource( 41 )
+bus = "SoundEffect"

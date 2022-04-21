@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sofa impact 3.ogg-512e27df4dc33c6949055d3ce60c9704.oggstr"
+
+[deps]
+
+source_file="res://Assets/sfx/Garbage impacts/sofa impact 3.ogg"
+dest_files=[ "res://.import/sofa impact 3.ogg-512e27df4dc33c6949055d3ce60c9704.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

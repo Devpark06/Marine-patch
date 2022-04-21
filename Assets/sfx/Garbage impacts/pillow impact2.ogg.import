@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/pillow impact2.ogg-92aac1724679730d82e02c5757b71b3c.oggstr"
+
+[deps]
+
+source_file="res://Assets/sfx/Garbage impacts/pillow impact2.ogg"
+dest_files=[ "res://.import/pillow impact2.ogg-92aac1724679730d82e02c5757b71b3c.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

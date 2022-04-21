@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/glass impact2.ogg-3f023509562af4a9546e06ea7404482f.oggstr"
+
+[deps]
+
+source_file="res://Assets/sfx/Garbage impacts/glass impact2.ogg"
+dest_files=[ "res://.import/glass impact2.ogg-3f023509562af4a9546e06ea7404482f.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

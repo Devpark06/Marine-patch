@@ -1,8 +1,8 @@
 extends Line2D
 
-onready var Start = get_parent().get_node("Player/Vectorcreator/Arrow_holder/Position2D")
-onready var End = get_parent().get_node("Player/Vectorcreator/Arrow/Positions/Arrow_end")
-onready var Arrow = get_parent().get_node("Player/Vectorcreator/Arrow")
+onready var Start = get_parent().get_node("Player/LaunchArea/Arrow_holder/Position2D")
+onready var End = get_parent().get_node("Player/LaunchArea/Arrow/Positions/Arrow_end")
+onready var Arrow = get_parent().get_node("Player/LaunchArea/Arrow")
 
 func _process(delta):
 	if Arrow.state != Arrow.Idle:

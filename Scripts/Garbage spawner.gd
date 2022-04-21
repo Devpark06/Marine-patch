@@ -39,7 +39,8 @@ onready var Garbage_node = $Garbage
 onready var Tween_node = $Tween
 var tween_time = 0.9
 var No_of_positions
-var location = Vector2()
+var Slocation = Vector2()
+var Srotation = Vector2()
 
 func _ready():
 	No_of_positions = Positions_node.get_child_count() 
@@ -49,9 +50,11 @@ func _ready():
 
 func spawn(i):
 	var x = randi() % packed_scenes.size()
-	location = Positions_node.get_child(i).global_position
+	Slocation = Positions_node.get_child(i).global_position
+	Srotation = Positions_node.get_child(i).rotation
 	var scene = packed_scenes[x].instance()
-	scene.global_position = location
+	scene.global_position = Slocation
+	scene.rotation = Srotation
 	Garbage_node.add_child(scene)
 	
 	Tween_node.interpolate_property(

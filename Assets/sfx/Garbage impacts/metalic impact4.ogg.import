@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/metalic impact4.ogg-76729f56d6bfb719cae6d2f8d5e1aaa7.oggstr"
+
+[deps]
+
+source_file="res://Assets/sfx/Garbage impacts/metalic impact4.ogg"
+dest_files=[ "res://.import/metalic impact4.ogg-76729f56d6bfb719cae6d2f8d5e1aaa7.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

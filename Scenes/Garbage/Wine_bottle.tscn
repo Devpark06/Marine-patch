@@ -7,10 +7,13 @@
 extents = Vector2( 22, 60 )
 
 [node name="Wine_bottle" type="RigidBody2D" groups=["Trash"]]
-collision_layer = 3
-collision_mask = 3
-gravity_scale = 0.0
+collision_layer = 4
+collision_mask = 125
 script = ExtResource( 2 )
+__meta__ = {
+"_editor_description_": ""
+}
+Impact_sound = "Glass"
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.5, 0.5 )

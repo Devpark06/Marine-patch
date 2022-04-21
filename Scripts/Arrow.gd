@@ -15,14 +15,14 @@ onready var hud = Parent.get_parent().get_parent().get_node("HudLayer/Hud")
 var state = Idle
 var distance = 0
 var direction = Vector2.ZERO
-var force = 500
-var self_pos = self.global_position
-var target_pos = Arrow_holder.global_position
+var launch_force = 600
+var return_force = 1000
 var cycle = false
 var hit = false
 
-func launch(impulse):
-	self.apply_impulse(Vector2.ZERO, impulse)
+func launch(direction):
+	self.apply_impulse(Vector2.ZERO, direction * launch_force)
+	SoundEffect.play("ArrowLaunch", "Arrow")
 	state = Launched
 
 func setup():
@@ -32,7 +32,8 @@ func return_to():
 	self.linear_velocity = Vector2.ZERO
 	self.angular_velocity = 0
 	self.sleeping = true
-	self.global_rotation = lerp_angle(self.global_rotation, Arrow_holder.global_rotation, 0.5)
+	self.global_position = Arrow_holder.global_position
+	self.global_rotation = lerp_angle(self.global_rotation, Arrow_holder.global_rotation, 1)
 	if hit:
 		$Tween.interpolate_property(
 			Trash_sprite,
@@ -45,7 +46,7 @@ func return_to():
 		)
 		$Tween.start()
 	self.global_position = Arrow_holder.global_position
-	self.global_rotation_degrees = Arrow_holder.global_rotation_degrees
+	self.global_rotation = Arrow_holder.global_rotation
 	state = Idle
 	hit = false
 
@@ -61,16 +62,12 @@ func on_body_entered(body):
 
 func Return_when_hit():
 	if hit:
-		self_pos = self.global_position
-		target_pos = Arrow_holder.global_position
-		direction = self_pos.direction_to(target_pos)
-		self.apply_central_impulse(direction * force)
+		direction = global_position.direction_to(Arrow_holder.global_position)
+		self.apply_central_impulse(direction * return_force)
 		state = Returning
 		Delay_timer.stop()
 
-func Return_when_timeup():    
-	self_pos = self.global_position
-	target_pos = Arrow_holder.global_position
-	direction = self_pos.direction_to(target_pos)
-	self.apply_central_impulse(direction * force)
+func Return_when_timeup():
+	direction = global_position.direction_to(Arrow_holder.global_position)
+	self.apply_central_impulse(direction * return_force)
 	state = Returning
