@@ -53,6 +53,7 @@ position = Vector2( 6, -2 )
 
 [node name="Line2D" type="Line2D" parent="."]
 points = PoolVector2Array( 0, 0, 0, 0 )
+width = 8.0
 default_color = Color( 0, 0, 0, 1 )
 texture = ExtResource( 2 )
 texture_mode = 1

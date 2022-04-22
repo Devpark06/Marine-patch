@@ -38,6 +38,8 @@ func scale_element(element, animtime, animtype, easetype = Tween.EASE_OUT):
 func show_gameover(type, stars = 0):
 	if type == "win":
 		Win_screen.visible = true
+		for child in $Confetti.get_children():
+			child.emitting = true
 		if stars == 1:
 			Win_star1.visible = true
 			scale_element(Win_star1, Star_tween_animtime, Star_tween_type)

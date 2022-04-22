@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/confetti_particles.gd" type="Script" id=1]
+
+[node name="ConfettiParticles" type="Node2D"]
+script = ExtResource( 1 )
+amount = 500
+size = 5.0
+random_position = false
+one_shot = true

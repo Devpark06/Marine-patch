@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scripts/UI/Hud.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/UI/Coin_counter.tscn" type="PackedScene" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://Assets/UI/Hud/Next button.png" type="Texture" id=16]
 [ext_resource path="res://Assets/UI/Hud/Loose panel.png" type="Texture" id=17]
 [ext_resource path="res://Assets/UI/Hud/Star .png" type="Texture" id=18]
+[ext_resource path="res://Scenes/confetti_particles.tscn" type="PackedScene" id=19]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.0196078, 0.843137, 0.184314, 1 )
@@ -559,6 +560,28 @@ grow_vertical = 2
 size_flags_horizontal = 2
 size_flags_vertical = 2
 texture_normal = ExtResource( 8 )
+
+[node name="Confetti" type="Node2D" parent="."]
+
+[node name="ConfettiParticles1" parent="Confetti" instance=ExtResource( 19 )]
+position = Vector2( 512, 54 )
+timer_wait_time = 2.0
+
+[node name="ConfettiParticles2" parent="Confetti" instance=ExtResource( 19 )]
+position = Vector2( 0, 54 )
+timer_wait_time = 2.0
+
+[node name="ConfettiParticles3" parent="Confetti" instance=ExtResource( 19 )]
+position = Vector2( 1024, 54 )
+timer_wait_time = 2.0
+
+[node name="ConfettiParticles4" parent="Confetti" instance=ExtResource( 19 )]
+position = Vector2( 256, 54 )
+timer_wait_time = 2.0
+
+[node name="ConfettiParticles5" parent="Confetti" instance=ExtResource( 19 )]
+position = Vector2( 768, 54 )
+timer_wait_time = 2.0
 
 [node name="Tween" type="Tween" parent="."]
 
