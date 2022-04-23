@@ -20,8 +20,8 @@ var return_force = 1000
 var cycle = false
 var hit = false
 
-func launch(direction):
-	self.apply_impulse(Vector2.ZERO, direction * launch_force)
+func launch(dir):
+	self.apply_impulse(Vector2.ZERO, dir * launch_force)
 	SoundEffect.play("ArrowLaunch", "Arrow")
 	state = Launched
 
@@ -45,8 +45,7 @@ func return_to():
 			Tween.EASE_OUT
 		)
 		$Tween.start()
-	self.global_position = Arrow_holder.global_position
-	self.global_rotation = Arrow_holder.global_rotation
+	yield(get_tree().create_timer(0.6), "timeout")
 	state = Idle
 	hit = false
 

@@ -6,8 +6,18 @@ onready var Ambience_index = AudioServer.get_bus_index("Ambience")
 onready var SoundEffect_index = AudioServer.get_bus_index("SoundEffect")
 onready var UiSound_index = AudioServer.get_bus_index("UiSound")
 
-func _ready():
-	randomize()
+func stop(sfx = null, group = ""):
+	if sfx != null:
+		if group == "":
+			get_node(sfx).stop()
+		else:
+			get_node(group).get_node(sfx).stop()
+	else:
+		for i in get_children():
+			if i.playing:
+				i.stop()
+			else:
+				pass
 
 func play(sfx = null, group = ""):
 	randomize()

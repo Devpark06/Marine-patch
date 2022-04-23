@@ -1,5 +1,6 @@
 extends Control
 
+onready var Lifebar = $LifeBar
 onready var Garbage_counter = $Container/Counters/Garbage_counter
 onready var Garbage_counter_label = Garbage_counter.get_node("Label")
 onready var Coin_counter = $Container/Counters/Coin_counter
@@ -11,6 +12,9 @@ onready var Win_star2 = Win_screen.get_node("NinePatchRect/Star2")
 onready var Win_star3 = Win_screen.get_node("NinePatchRect/Star3")
 onready var Win_screen_coins = Win_screen.get_node("NinePatchRect/VBoxContainer/HBoxContainer/Label")
 onready var Loose_screen = get_node("WinLooseLayer/LooseScreen")
+var Star_tween_type = Tween.TRANS_BOUNCE
+var Star_tween_animtime = 0.5
+var Star_tween_delay = 0.3 
 
 func _ready():
 	change_text()
@@ -18,42 +22,43 @@ func _ready():
 func change_text():
 	Garbage_counter_label.text = "%s / %s" % [Global.Garbage_collected,Global.Total_garbage_count]
 	Coin_counter_label.text = str(Global.Coin_collected)
+	Lifebar.value = Global.health
 
-func scale_element(tween_node, element, animtime, animtype, easetype = Tween.EASE_OUT):
-	tween_node.interpolate_property(
+func scale_element(element, animtime, animtype, easetype = Tween.EASE_OUT):
+	$Tween.interpolate_property(
 		element,
 		"rect_scale",
-		Vector2(0, 0),
+		Vector2(3, 3),
 		Vector2(1, 1),
 		animtime,
 		animtype,
 		easetype)
-	tween_node.start()
+	$Tween.start()
 
 func show_gameover(type, stars = 0):
 	if type == "win":
 		Win_screen.visible = true
 		if stars == 1:
 			Win_star1.visible = true
-			scale_element($Tween1, Win_star1, 0.9, Tween.TRANS_ELASTIC)
-			yield(get_tree().create_timer(1.0), "timeout")
+			scale_element(Win_star1, Star_tween_animtime, Star_tween_type)
+			yield(get_tree().create_timer(Star_tween_delay), "timeout")
 		elif stars == 2:
 			Win_star1.visible = true
-			scale_element($Tween1, Win_star1, 0.9, Tween.TRANS_ELASTIC)
-			yield(get_tree().create_timer(1.0), "timeout")
+			scale_element(Win_star1, Star_tween_animtime, Star_tween_type)
+			yield(get_tree().create_timer(Star_tween_delay), "timeout")
 			Win_star2.visible = true
-			scale_element($Tween2, Win_star2, 0.9, Tween.TRANS_ELASTIC)
-			yield(get_tree().create_timer(1.0), "timeout")
+			scale_element(Win_star2, Star_tween_animtime, Star_tween_type)
+			yield(get_tree().create_timer(Star_tween_delay), "timeout")
 		elif stars == 3:
 			Win_star1.visible = true
-			scale_element($Tween1, Win_star1, 0.9, Tween.TRANS_ELASTIC)
-			yield(get_tree().create_timer(1.0), "timeout")
+			scale_element(Win_star1, Star_tween_animtime, Star_tween_type)
+			yield(get_tree().create_timer(Star_tween_delay), "timeout")
 			Win_star2.visible = true
-			scale_element($Tween2, Win_star2, 0.9, Tween.TRANS_ELASTIC)
-			yield(get_tree().create_timer(1.0), "timeout")
+			scale_element(Win_star2, Star_tween_animtime, Star_tween_type)
+			yield(get_tree().create_timer(Star_tween_delay), "timeout")
 			Win_star3.visible = true
-			scale_element($Tween3, Win_star3, 0.9, Tween.TRANS_ELASTIC)
-			yield(get_tree().create_timer(1.0), "timeout")
+			scale_element(Win_star3, Star_tween_animtime, Star_tween_type)
+			yield(get_tree().create_timer(Star_tween_delay), "timeout")
 		Win_screen_coins.text = "+" + str(Global.coins)
 	elif type == "loose":
 		Loose_screen.visible = true
@@ -67,6 +72,7 @@ func ResumeButton_pressed():
 	Pause_menu.visible = false
 
 func RestartButton_pressed():
+	SoundEffect.stop("Submarine")
 	get_tree().paused = false
 	Pause_menu.visible = false
 	get_tree().reload_current_scene()
@@ -74,4 +80,7 @@ func RestartButton_pressed():
 	change_text()
 
 func HomeButton_pressed():
-	pass
+	SoundEffect.stop("Submarine")
+	SceneChanger.change_scene("res://Scenes/UI/Main.tscn")
+	get_tree().paused = false
+	Global.reset()

@@ -7,19 +7,16 @@ onready var Arrow_holder = $Arrow_holder
 var garbage_on_screen = []
 var vector_angle = 0
 
-#func _physics_process(_delta):
-#	var color = Action_button_label.get("theme_overrides/colors")
-#	var font_color = color.font_color
-#
-#	if garbage_on_screen.size() == 0:
-#		Action_button.disabled = true
-#	else:
-#		Action_button.disabled = false
-#
-#	if Action_button.disabled == true:
-#		font_color.a = 0.52
-#	else:
-#		font_color.a = 1
+func _physics_process(_delta):
+	if garbage_on_screen.size() == 0:
+		Action_button.disabled = true
+	else:
+		Action_button.disabled = false
+
+	if Action_button.disabled == true:
+		Action_button_label.modulate.a = 0.53
+	else:
+		Action_button_label.modulate.a = 1
 
 func on_body_entered(body):
 	if body.is_in_group("Arrow"):

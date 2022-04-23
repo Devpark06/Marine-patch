@@ -34,35 +34,25 @@ func _physics_process(delta):
 	
 	if state == Out_of_water:
 		Arrow.global_position = Arrow_holder.global_position
-		if AudioServer.get_bus_effect_count(SoundEffect.SoundEffect_index) != 0:
-			AudioServer.remove_bus_effect(SoundEffect.SoundEffect_index, 0)
-			SoundEffect.change_pitch("Submarine", 0.8, 2 * delta)
-		gravity = 35
-		max_y_speed = 450
+		SoundEffect.change_pitch("Submarine", 0.8, 2 * delta)
 		motion.y += gravity
 		motion.y = clamp(motion.y, -max_y_speed, max_y_speed)
 		motion = move_and_slide(motion)
 	elif state == In_water:
-		var effect = AudioEffectLowPassFilter.new()
-		effect.cutoff_hz = 1000
-		effect.resonance = 0.5
-		effect.db = 6
-		AudioServer.add_bus_effect(SoundEffect.SoundEffect_index, effect, 0)
+		pass
 	else:
-		if AudioServer.get_bus_effect_count(SoundEffect.SoundEffect_index) != 0:
-			AudioServer.remove_bus_effect(SoundEffect.SoundEffect_index, 0)
-			SoundEffect.change_pitch("Submarine", 0.8, 2 * delta)
+		SoundEffect.change_pitch("Submarine", 0.8, 2 * delta)
 	
 	if input_vector != Vector2.ZERO and Arrow.state == Arrow.Idle:
 		if SoundEffect.is_playing("Submarine") == false:
 			SoundEffect.play("Submarine")
 		else:
-			SoundEffect.change_pitch("Submarine", 0.2, 2 * delta)
+			SoundEffect.change_pitch("Submarine", 0.4, 2 * delta)
 		velocity += input_vector * Acceleration * delta
 		velocity = velocity.clamped(Max_speed * delta)
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, Friction * delta)
-		SoundEffect.change_pitch("Submarine", 0.1, 2 * delta)
+		SoundEffect.change_pitch("Submarine", 0.3, 2 * delta)
 	
 	move_and_collide(velocity)
 
@@ -71,6 +61,7 @@ func Water_body_entered(body):
 		state = In_water
 		Waterbody.apply_force(global_position, water_force * Vector2.DOWN, water_width)
 		SoundEffect.play("Splash")
+		move_and_slide(Vector2(0,4000))
 
 func Water_body_exited(body):
 	if body.is_in_group("Player"):

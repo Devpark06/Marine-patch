@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scripts/UI/Hud.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/UI/Coin_counter.tscn" type="PackedScene" id=2]
@@ -19,12 +19,53 @@
 [ext_resource path="res://Assets/UI/Hud/Loose panel.png" type="Texture" id=17]
 [ext_resource path="res://Assets/UI/Hud/Star .png" type="Texture" id=18]
 
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0196078, 0.843137, 0.184314, 1 )
+border_width_top = 15
+border_color = Color( 0.588235, 0.960784, 0.466667, 1 )
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.145098, 0.133333, 0.133333, 1 )
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 6.0
+expand_margin_right = 6.0
+expand_margin_top = 6.0
+expand_margin_bottom = 6.0
+
 [node name="Hud" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 input_pass_on_modal_close_click = false
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LifeBar" type="ProgressBar" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -190.0
+margin_top = 36.0
+margin_right = 81.0
+margin_bottom = 63.0
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
+value = 25.0
+percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -469,7 +510,7 @@ margin_right = 498.0
 margin_bottom = 145.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 11 )
-text = "You Loose!"
+text = "Game over!"
 align = 1
 valign = 1
 __meta__ = {
@@ -519,11 +560,7 @@ size_flags_horizontal = 2
 size_flags_vertical = 2
 texture_normal = ExtResource( 8 )
 
-[node name="Tween1" type="Tween" parent="."]
-
-[node name="Tween2" type="Tween" parent="."]
-
-[node name="Tween3" type="Tween" parent="."]
+[node name="Tween" type="Tween" parent="."]
 
 [connection signal="pressed" from="Container/Buttons/TextureButton" to="." method="PauseButton_pressed"]
 [connection signal="pressed" from="PauseLayer/PauseMenu/NinePatchRect/ButtonsContainer/ResumeButton" to="." method="ResumeButton_pressed"]
