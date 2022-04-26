@@ -20,4 +20,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Button2" type="Button" parent="."]
+margin_left = 427.0
+margin_top = 478.0
+margin_right = 631.0
+margin_bottom = 555.0
+text = "QUIT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="button_down" from="Button" to="." method="_on_Button_button_down"]
+[connection signal="button_down" from="Button2" to="." method="_on_Button2_button_down"]

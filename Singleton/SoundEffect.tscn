@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://Singleton/SoundEffect.gd" type="Script" id=1]
 [ext_resource path="res://Assets/sfx/submarine.wav" type="AudioStream" id=2]
@@ -57,6 +57,8 @@
 [ext_resource path="res://Assets/sfx/Garbage impacts/wood impact5.ogg" type="AudioStream" id=55]
 [ext_resource path="res://Assets/sfx/Garbage impacts/plastic impact4.ogg" type="AudioStream" id=56]
 [ext_resource path="res://Assets/sfx/water splash.ogg" type="AudioStream" id=57]
+[ext_resource path="res://Assets/sfx/GameOver/Balloon.ogg" type="AudioStream" id=58]
+[ext_resource path="res://Assets/sfx/Garbage impacts/calculator impact.ogg" type="AudioStream" id=59]
 
 [node name="SoundEffect" type="Node2D"]
 pause_mode = 2
@@ -72,6 +74,12 @@ bus = "SoundEffect"
 
 [node name="ArrowLaunch" type="AudioStreamPlayer" parent="Arrow"]
 stream = ExtResource( 3 )
+bus = "SoundEffect"
+
+[node name="GameOver" type="Node2D" parent="." groups=["group"]]
+
+[node name="Balloon" type="AudioStreamPlayer" parent="GameOver"]
+stream = ExtResource( 58 )
 bus = "SoundEffect"
 
 [node name="Splash" type="Node2D" parent="."]
@@ -107,6 +115,7 @@ stream = ExtResource( 6 )
 bus = "SoundEffect"
 
 [node name="Calculator impact" type="AudioStreamPlayer" parent="Impact"]
+stream = ExtResource( 59 )
 bus = "SoundEffect"
 
 [node name="Can impact" type="Node2D" parent="Impact"]

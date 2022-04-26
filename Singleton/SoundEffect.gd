@@ -31,15 +31,18 @@ func play(sfx = null, group = ""):
 		if sfx:
 			get_node(group).get_node(sfx).play()
 
-func is_playing(sfx):
-	if sfx:
-		if get_node(sfx).is_playing():
+func is_playing(sfx, group = ""):
+	if sfx and group != "":
+		if get_node(group).get_node(sfx).is_playing():
 			return true
 		else:
 			return false
 	else:
-		return
-		
+		if get_node(sfx).is_playing():
+			return true
+		else:
+			return false
+
 func change_pitch(sfx, pitch, weight):
 	if sfx:
 		get_node(sfx).pitch_scale = lerp(get_node(sfx).pitch_scale, pitch, weight)

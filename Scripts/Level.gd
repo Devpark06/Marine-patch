@@ -16,6 +16,9 @@ func _process(_delta):
 			stars_collected += 1
 		if Global.Coin_collected == 0: #Later to be replaced
 			stars_collected += 1
+		yield(get_tree().create_timer(0.8), "timeout")
 		Hud.show_gameover("win", stars_collected)
+		set_process(false)
 	elif Global.health == 0:
 		Hud.show_gameover("loose")
+		set_process(false)

@@ -25,7 +25,7 @@ script = ExtResource( 6 )
 [node name="Player" parent="." groups=["Player"] instance=ExtResource( 12 )]
 position = Vector2( 575, -946 )
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="Player" groups=["Camera"]]
 current = true
 smoothing_enabled = true
 
@@ -96,7 +96,7 @@ point_per_distance = 20
 position = Vector2( 0, 21.6098 )
 polygon = PoolVector2Array( -1321, -466, 1802, -466, 1802, 875, -1321, 875 )
 
-[node name="HudLayer" type="CanvasLayer" parent="."]
+[node name="HudLayer" type="CanvasLayer" parent="." groups=["HudLayer"]]
 
 [node name="Hud" parent="HudLayer" instance=ExtResource( 15 )]
 

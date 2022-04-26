@@ -21,8 +21,9 @@ default_bus_layout="res://bus_layout.tres"
 [autoload]
 
 Global="*res://Singleton/Global.gd"
-SceneChanger="*res://Singleton/SceneChanger.tscn"
 SoundEffect="*res://Singleton/SoundEffect.tscn"
+ScreenShake="*res://Singleton/ScreenShake.tscn"
+SceneChanger="*res://Singleton/SceneChanger.tscn"
 
 [display]
 

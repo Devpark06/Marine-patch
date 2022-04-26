@@ -37,9 +37,15 @@ func scale_element(element, animtime, animtype, easetype = Tween.EASE_OUT):
 
 func show_gameover(type, stars = 0):
 	if type == "win":
-		Win_screen.visible = true
+		var playable = true
+		if !SoundEffect.is_playing("Balloon", "GamOver") and playable:
+			SoundEffect.play("Balloon", "GameOver")
+			playable = false
+		ScreenShake.start(0.8, 15, 20, 1, true)
 		for child in $Confetti.get_children():
 			child.emitting = true
+		yield(get_tree().create_timer(1.2), "timeout")
+		Win_screen.visible = true
 		if stars == 1:
 			Win_star1.visible = true
 			scale_element(Win_star1, Star_tween_animtime, Star_tween_type)
